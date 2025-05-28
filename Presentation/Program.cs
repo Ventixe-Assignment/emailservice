@@ -1,21 +1,24 @@
+using Azure.Communication.Email;
+using Presentation.Interfaces;
+using Presentation.Services;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddMemoryCache();
+builder.Services.AddSingleton(x => new EmailClient(builder.Configuration["ACS:ConnectionString"]));
+builder.Services.AddTransient<IEmailService, EmailService>();
+
+
+
+
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
+app.MapOpenApi();
 app.UseHttpsRedirection();
+app.UseCors(x => { x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();});
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
