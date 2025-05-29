@@ -11,7 +11,7 @@ public class EmailsController(IEmailService emailService) : ControllerBase
     private readonly IEmailService _emailService = emailService;
      
     [HttpPost("send")]
-    public async Task<IActionResult> Send( EmailVerificationCodeRequest request)
+    public async Task<IActionResult> Send([FromBody] EmailVerificationCodeRequest request)
     {
         if (!ModelState.IsValid)
             return BadRequest(new { Error = "Recipient email not provided!" });
@@ -23,7 +23,7 @@ public class EmailsController(IEmailService emailService) : ControllerBase
     }
 
     [HttpPost("verify")]
-    public IActionResult Verify( VerifyEmailRequest request)
+    public IActionResult Verify([FromBody] VerifyEmailRequest request)
     {
         if (!ModelState.IsValid)
             return BadRequest(new { Error = "Code is invalid or expired" });
