@@ -9,7 +9,7 @@ namespace Presentation.Controllers;
 public class EmailsController(IEmailService emailService) : ControllerBase
 {
     private readonly IEmailService _emailService = emailService;
-
+     
     [HttpPost("send")]
     public async Task<IActionResult> Send(EmailVerificationCodeRequest request)
     {
