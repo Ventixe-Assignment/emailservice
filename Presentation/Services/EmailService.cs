@@ -33,7 +33,7 @@ public class EmailService(IConfiguration configuration, EmailClient emailClient,
             {verificationCode}
 
             Alternatively, you can click the link below to verify your email address:
-            https://ventixe.com/verify-email?email={Uri.EscapeDataString(request.Email)}&code={verificationCode} 
+            https://black-field-0a83cc903.6.azurestaticapps.net/register/verify-email?email={Uri.EscapeDataString(request.Email)}&code={verificationCode} 
 
 
             If you did not request this verification, please ignore this email.           
@@ -69,7 +69,7 @@ public class EmailService(IConfiguration configuration, EmailClient emailClient,
                       </p>
 
                       <p style='text-align: center; margin: 30px 0;'>
-                        <a href='https://ventixe.com/verify-email?email={Uri.EscapeDataString(request.Email)}&code={verificationCode}'
+                        <a href='https://black-field-0a83cc903.6.azurestaticapps.net/register/verify-email?email={Uri.EscapeDataString(request.Email)}&code={verificationCode}'
                            style='background-color: #D3DAF9; color: #3D004D; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;'>
                           Verify Email Address
                         </a>
