@@ -2,7 +2,7 @@ using Azure.Communication.Email;
 using Presentation.Interfaces;
 using Presentation.Services;
 using Azure.Identity;
-
+ 
 var builder = WebApplication.CreateBuilder(args);
 
 var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri")!);
